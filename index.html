@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DCC Survey Appointment Map</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>DCC Survey Appointment Map</h1>
+      <p>Google Maps POC using SharePoint-style sample data</p>
+    </header>
+
+    <main class="layout">
+      <aside class="panel">
+        <section>
+          <h2>Filters</h2>
+          <label for="searchInput">Search</label>
+          <input id="searchInput" type="text" placeholder="ID, Eircode, address, tenant" />
+
+          <label for="statusFilter">Status</label>
+          <select id="statusFilter">
+            <option value="All">All Statuses</option>
+          </select>
+
+          <label for="surveyorFilter">Surveyor</label>
+          <select id="surveyorFilter">
+            <option value="All">All Surveyors</option>
+          </select>
+
+          <div class="button-row">
+            <button id="clearFiltersBtn" type="button">Clear Filters</button>
+            <button id="refreshBtn" type="button">Refresh Data</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Route Demo</h2>
+          <label for="routeFromSelect">From</label>
+          <select id="routeFromSelect"><option value="">Select start record</option></select>
+
+          <label for="routeToSelect">To</label>
+          <select id="routeToSelect"><option value="">Select end record</option></select>
+
+          <div class="button-row">
+            <button id="showRouteBtn" type="button">Show Route</button>
+            <button id="clearRouteBtn" type="button" class="secondary">Clear Route</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Summary</h2>
+          <ul id="summaryList" class="summary-list"></ul>
+        </section>
+
+        <section>
+          <h2>Legend</h2>
+          <ul class="legend">
+            <li><span class="dot scheduled"></span> Scheduled</li>
+            <li><span class="dot completed"></span> Completed</li>
+            <li><span class="dot rescheduled"></span> Rescheduled</li>
+            <li><span class="dot pending"></span> Pending Allocation</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Nearby Appointments</h2>
+          <p class="hint">Click a marker to view nearest appointments (within 5 km).</p>
+          <ul id="nearbyList" class="nearby-list"></ul>
+        </section>
+      </aside>
+
+      <section class="map-section">
+        <div id="map"></div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+    <script src="app.js"></script>
+    <!-- Add your Google Maps JavaScript API key below.
+         Keep this as a placeholder in source control. -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
+  </body>
+</html>
